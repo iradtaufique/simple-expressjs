@@ -1,7 +1,6 @@
 // importing express into our applications
 const express = require("express");
 const path = require("path");
-const member = require("./Members");
 const moment = require('moment')
 const logger = require('./middleware/logger')
 
@@ -14,14 +13,14 @@ const app = express();
 app.use(logger);
 
 
-// creating route for gettig members
-app.get("/api/members", (req, res) => {
-  res.json(member);
-});
 
 
 // setting static folder to serve my static files
 app.use(express.static(path.join(__dirname, "public")));
+
+
+// Members API routes
+app.use('/api/members', require('./routes/api/members'));
 
 // creating port
 const PORT = process.env.PORT || 5000;
