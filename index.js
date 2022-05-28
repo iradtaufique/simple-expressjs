@@ -5,12 +5,18 @@ const moment = require('moment')
 const logger = require('./middleware/logger')
 
 // inititialize our app
-
 const app = express();
 
 
 // initialize middleware
 app.use(logger);
+
+// Body parse Middleware
+app.use(express.json());
+
+// handling form submission
+app.use(express.urlencoded({extended: false}));
+
 
 
 
