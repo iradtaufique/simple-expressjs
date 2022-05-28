@@ -43,4 +43,33 @@ route.post("/", (req, res) => {
   res.json(member);
 });
 
+
+// Update single member
+route.put("/:id", (req, res) => {
+    // check if memeber exist using some method
+    const found = member.some((mem) => mem.id === parseInt(req.params.id));
+  
+    // if member found
+    if (found) {
+
+      // variable to hold data to replace existing member
+      const updMember = req.body;
+
+    //   lood through member
+      member.forEach(mbr =>{
+        //   check if the member in path is the one we want
+        if (mbr.id === parseInt(req.params.id)){
+            // if name or email provided update it else return existing one
+            mbr.name = updMember.name ? updMember.name : mbr.name;
+            mbr.email = updMember.email ? updMember.email : mbr.email;
+
+            // returning the updated memeber
+            res.json({msg: 'Memeber Updated', mbr});
+        }
+      });  
+    } else {
+      res.status(400).json({ msg: `member with id ${req.params.id} not found` });
+    }
+  });
+
 module.exports = route;

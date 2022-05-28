@@ -18,9 +18,6 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 
-
-
-
 // setting static folder to serve my static files
 app.use(express.static(path.join(__dirname, "public")));
 
