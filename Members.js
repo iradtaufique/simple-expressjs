@@ -2,12 +2,12 @@ const member = [
     {
         id: 1,
         name: 'bob calvin',
-        age: 20
+        email: 'bob@gmail.com'
     },
     {
         id: 2,
         name: 'Peter calvin',
-        age: 25
+        email: 'peter@gmail.com'
     }
 ];
 

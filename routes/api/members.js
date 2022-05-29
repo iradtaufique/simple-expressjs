@@ -39,6 +39,7 @@ route.post("/", (req, res) => {
 
   // if submitted then push or add it to the existing memeber object
   member.push(newMember);
+  // res.redirect('/');
   // print it out
   res.json(member);
 });
